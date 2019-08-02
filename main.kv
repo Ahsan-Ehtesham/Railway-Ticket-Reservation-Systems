@@ -1,0 +1,56 @@
+<toggling>:
+    orientation: "vertical"
+    padding: 5
+    spacing: 5
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            text: "Title"
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Label:
+            size_hint_x: None
+            width: "100dp"
+            text: "Firstly"
+
+        ToggleButton:
+            text:"A1"
+            group: "a_group"
+            id: a1
+            on_press:
+        ToggleButton:
+            text:"A2"
+            group: "a_group"
+            id: faulty
+            on_press:
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+        Label:
+            size_hint_x: None
+            width: "100dp"
+            text: "Secondly"
+        ToggleButton:
+            text:"B1"
+            id: b1
+            group: "the_b_group"
+            on_press:
+
+        ToggleButton:
+            text:"B2"
+            id: b2
+            group: "the_b_group"
+            on_press:
+
+        ToggleButton:
+            text:"B3"
+            id: b3
+            group: "the_b_group"
+            on_press:
+
+    BoxLayout:

@@ -1,0 +1,703 @@
+
+#************************************************************
+#                 MULTI WINDOW HANDLER
+#************************************************************
+
+<WindowManager>:
+    MainScreen:
+    ScheduleScreen:
+    BookScreen:
+    VoucherScreen:
+    PromotionScreen:
+    AdminScreen:
+    TicketScreen:
+    ResInfoScreen:
+
+
+
+#************************************************************
+#                 MAIN START-UP SCREEN
+#************************************************************
+
+<MainScreen>:
+    name: "main"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'railway.png'
+
+    FloatLayout:
+
+
+        Label:
+            text: "Pakistan Railways Reservation App"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            bold: True
+            underline: True
+            color: 128,1,0,1
+            pos_hint: {'center_x':.5, 'center_y':.95}
+
+
+
+        CustButton:
+            text: "Train Schedule"
+
+            pos_hint: {'center_x':.25, 'center_y':.70}
+            on_release:
+                app.root.current = 'schedule'
+                root.manager.transition.direction = "left"
+
+
+        CustButton:
+            text: "Book Your Ticket"
+
+            pos_hint: {'center_x':.75, 'center_y':.70}
+            on_release:
+                app.root.current = 'book'
+                root.manager.transition.direction = "left"
+
+        CustButton:
+            text: "Promotions"
+
+            pos_hint: {'center_x':.25, 'center_y':.20}
+            on_release:
+                app.root.current = 'promotion'
+                root.manager.transition.direction = "left"
+                play = True
+
+        CustButton:
+            text: "Admin Panel"
+
+            pos_hint: {'center_x':.75, 'center_y':.20}
+            on_release:
+                app.root.current = 'admin'
+                root.manager.transition.direction = "left"
+                play: True
+
+
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "Angeline Vintage"
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+
+#************************************************************
+#                 TRAIN SCHEDULE SCREEN
+#************************************************************
+
+
+<ScheduleScreen>:
+    name: "schedule"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'green.png'
+
+    FloatLayout:
+
+        Label:
+            text: "Train Schedule"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            underline: True
+            color: 0,0,0,1
+            pos_hint: {'center_x':.5, 'center_y':.95}
+
+
+        Label:
+            text: "Train Name              Departure Time              Destination"
+            font_name: "Radiant"
+            underline: True
+            color: 0,0,0,1
+            font_size: 28
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.85}
+
+        Label:
+            text: "1 JAFFER EXPRESS                      06:00                    KARACHI-QUETTA-KARACHI"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.75}
+
+        Label:
+            text: "2 LAHORE NON STOP                18:30                    LAHORE-KARACHI-LAHORE"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.65}
+
+        Label:
+            text: "3 KHYBER MAIL                               01:50           PESHAWAR-QUETTA-PESHAWAR"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.55}
+
+        Label:
+            text: "4 SHALIMAR EXPRESS                18:30       FAISALABAD-LAHORE-HYDERABAD"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.45}
+
+        Label:
+            text: "5 MARGALA EXPRESS                       07:00                LAHORE-ISLAMABAD-LAHORE"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.35}
+
+        Label:
+            text: "6 SUPER EXPRESS                     10:00            KARACHI-SARGODHA-KARACHI"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.25}
+
+        Label:
+            text: "7 PAKISTAN EXPRESS                  14:30               KARACHI-RAWALPINDI-KARACHI"
+            color: 0,0,0,1
+            font_size: 22
+            underline: True
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.15}
+
+
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            color: 0,0,0,1
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+
+#************************************************************
+#                 BOOKING SCREEN
+#************************************************************
+
+
+<BookScreen>:
+    name: "book"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'railway2.png'
+
+    FloatLayout:
+
+
+        Label:
+            text: "Book Your Ticket"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            underline: True
+            color: 0,0,0,1
+            pos_hint: {'center_x':.5, 'center_y':.95}
+
+
+        BookButton:
+            text: '1 JAFFER EXPRESS'
+            pos_hint: {'center_x':.25, 'center_y':.8}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '2 LAHORE NON STOP'
+            pos_hint: {'center_x':.75, 'center_y':.8}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '3 KHYBER MAIL'
+            pos_hint: {'center_x':.25, 'center_y':.6}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '4 SHALIMAR EXPRESS'
+            pos_hint: {'center_x':.75, 'center_y':.6}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '5 MARGALA EXPRESS'
+            pos_hint: {'center_x':.25, 'center_y':.4}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '6 SUPER EXPRESS'
+            pos_hint: {'center_x':.75, 'center_y':.4}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+        BookButton:
+            text: '7 PAKISTAN EXPRESS'
+            pos_hint: {'center_x':.5, 'center_y':0.2}
+            on_release:
+                app.root.current = "ticket"
+                root.manager.transition.direction = "left"
+
+
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            color: 0,0,0,1
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+#************************************************************
+#                 TICKET INFO SCREEN
+#************************************************************
+
+<TicketScreen>:
+    name: 'ticket'
+    name1: name1
+    cnic: cnic
+    contact : contact
+    journey: journey
+    standard: standard
+    economy: economy
+    luxury: luxury
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'green.png'
+
+    FloatLayout:
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            color: 0,0,0,1
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "book"
+                root.manager.transition.direction = "right"
+
+
+    GridLayout:
+        cols: 2
+
+
+
+        Label:
+            text: "Passenger Name:"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        TextInput:
+            id: name1
+            multiline: True
+
+        Label:
+            text: "CNIC Number:"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        TextInput:
+            id: cnic
+            multiline: True
+
+        Label:
+            text: "Contact Number:"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        TextInput:
+            id: contact
+            multiline: True
+
+        Label:
+            text: "Train Name (refer to previous window):"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        TextInput:
+            id: journey
+            multiline: True
+
+        Label:
+            text: "Train Standard:"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        Label:
+            text: "Standard                   Economy                   Business"
+            font_size: 16
+            bold: True
+            color: 0,0,0,1
+
+        Label:
+
+
+
+        GridLayout:
+            cols: 3
+            CheckBox:
+
+                id: standard
+                group: 'Class'
+                background_radio_normal: 'white.png'
+                background_radio_down: 'tick.png'
+
+
+            CheckBox:
+
+                id: economy
+                group: 'Class'
+                background_radio_normal: 'white.png'
+                background_radio_down: 'tick.png'
+
+
+            CheckBox:
+
+                id: luxury
+
+                group: 'Class'
+                background_radio_normal: 'white.png'
+                background_radio_down: 'tick.png'
+
+
+
+        FloatLayout:
+
+            CustButton:
+                text: 'SUBMIT'
+                font_name: 'comicsansms'
+                pos_hint: {'center_x': 1 , 'center_y': 0.2}
+                on_release:
+                    root.submit1()
+                    root.manager.current = 'voucher'
+
+#************************************************************
+#                 VOUCHER SCREEN
+#************************************************************
+<VoucherScreen>:
+    name: "voucher"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'logo.png'
+
+    FloatLayout:
+
+    Label:
+        text: 'Ticket Voucher'
+        font_size: 50
+        font_name: 'armyrangersacad'
+        underline: True
+        color: 0,128,0,1
+        pos_hint: {'center_x':.5, 'center_y':.95}
+
+    Label:
+        text: root.voucher
+        font_size: 30
+        font_name: 'Times New Roman'
+        color: 0,0,0,1
+        pos_hint: {'center_x':.5, 'center_y':.7}
+
+    Button:
+        background_normal: 'frame.png'
+        size_hint: .2, .32
+        pos_hint: {'center_x':.85, 'center_y':.25}
+
+
+
+    Label:
+        text:"TERMS AND CONDITONS: \n 1)Show this Voucher on counter for payment. \n 2) Voucher is valid for SINGLE USE only. \n 3) Travelling without payment is illegal. \n 4) NO Arms and Drugs allowed in train. \n 5) NO pets are allowed."
+        font_size: 25
+        font_name: 'Times New Roman'
+        color: 0,0,0,1
+        pos_hint: {'center_x':.35, 'center_y':.31}
+
+    Label:
+        text: "POWERED BY AAI_SOFTWARES"
+        bold: True
+        font_name: "comicsansms"
+        color: 0,0,0,1
+        pos_hint: {'center_x':.85, 'center_y':0.03}
+
+
+#************************************************************
+#                 PROMOTIONS SCREEN
+#************************************************************
+
+
+<PromotionScreen>:
+    name: "promotion"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'white.png'
+
+    AnchorLayout:
+    Video:
+        source: 'promotion.avi'
+        play: True
+        options: {'eos': 'loop'}
+        volume: 0
+
+
+
+    FloatLayout:
+
+
+        Label:
+            text: "Railway Promotions"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            underline: True
+            color: 0,128,0,1
+            pos_hint: {'center_x':.5, 'center_y':.95}
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            color: 0,0,0,1
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+
+
+#************************************************************
+#                 ADMIN PANEL (FOR SERVICE PROVIDER)
+#************************************************************
+
+<AdminScreen>:
+    name: "admin"
+    namee: namee
+    password: pwd
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'binary.png'
+
+
+    FloatLayout:
+
+
+        Label:
+            text: "Admin Panel"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            underline: True
+            color: 128,128,0,1
+            pos_hint: {'center_x':.5, 'center_y':.95}
+
+        Label:
+            text: 'User Name:'
+            font_name: 'Radiant'
+            font_size: 28
+            bold: True
+            color: .88,.88,.88,1
+            pos_hint: {'center_x':.5, 'center_y':.78}
+
+        TextInput:
+            pos_hint: {"x":0.35, "y":0.6}
+            size_hint: 0.3, 0.12
+            id: namee
+            multiline: False
+
+	    Label:
+            text: 'Password:'
+            font_name: 'Radiant'
+            font_size: 28
+            bold: True
+            color: .88,.88,.88,1
+            pos_hint: {'center_x':.5, 'center_y':.52}
+
+        TextInput:
+            pos_hint: {"x":0.35, "y":0.35}
+            size_hint: 0.3, 0.12
+            id: pwd
+            multiline: False
+            password: True
+
+        CustButton:
+            text: "Submit"
+            font_name: 'Angeline Vintage'
+            bold: True
+            pos_hint: {'center_x':.5, 'center_y':.23}
+            on_release:
+                app.root.current = 'resinfo'
+                root.manager.transition.direction = 'right'
+                root.submit()
+
+
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
+
+
+#************************************************************
+#                 Reservation Info
+#************************************************************
+
+<ResInfoScreen>:
+
+    name: "resinfo"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'logo.png'
+
+
+    FloatLayout:
+
+
+        Label:
+            text: "Reservation Info"
+            font_name: 'armyrangersacad'
+            font_size: 50
+            underline: True
+
+            color: 0,0,0,1
+            pos_hint: {'center_x':.5, 'center_y':.97}
+
+        Label:
+            text: "POWERED BY AAI_SOFTWARES"
+            bold: True
+            font_name: "comicsansms"
+            color: 0,0,0,1
+            pos_hint: {'center_x':.85, 'center_y':0.03}
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+    FloatLayout:
+        #cols:1
+
+        ScrollView:
+            do_scroll_x: False
+            do_scroll_y: True
+
+            Label:
+                size_hint_y: None
+                height: self.texture_size[1]
+
+                padding: 50, 50
+                text: root.info
+                font_size: 30
+                color: 0,0,0,1
+                bold: True
+                underline: True
+
+        BackButton:
+
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+
+#************************************************************
+#                 FORMATTING
+#************************************************************
+
+<CustButton@Button>:
+    font_size: 35
+    color: 0,0,0,1
+    font_name: 'Angeline Vintage'
+    bold: True
+    background_normal: 'Button.png'
+    background_color: .88,.88,.88,1
+    size_hint: .3, .15
+
+
+<BookButton@Button>:
+    font_size: 20
+    color: 0,0,0,1
+    font_name: 'Times New Roman'
+    bold: True
+    background_normal: 'Button.png'
+    background_color: .88,.88,.88,1
+    size_hint: .3, .15
+
+
+
+<BackButton@Button>:
+    font_size: 20
+    color: 0,0,0,1
+    font_name: 'habbo'
+    bold: True
+    background_normal: 'Button.png'
+    background_color: .88,.88,.88,1
+    size_hint: .1, .05
+    text: "BACK"
+    bold: True
+    pos_hint: {'center_x':0.1, 'center_y':0.1}
+
+
+
+
+
+#************************************************************
